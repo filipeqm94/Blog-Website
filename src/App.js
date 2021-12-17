@@ -19,7 +19,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div>
       <h1>Hello</h1>
       {/* INSERT COMPONENTS BELOW */}
       <Route exact path="/" component={Nav} />
