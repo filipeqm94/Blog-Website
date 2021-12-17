@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
-import Nav from './components/Nav/Nav'
+import Header from './components/Header/Header'
 import SubmitArticle from './components/SubmitArticle/SubmitArticle'
 import Articles from './components/Articles/Articles'
 
@@ -21,9 +21,8 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Hello</h1>
+      <Header />
       {/* INSERT COMPONENTS BELOW */}
-      <Route exact path="/" component={Nav} />
       <Route exact path="/" render={() => <Articles articles={articles} />} />
       <Route exact path="/submit" component={SubmitArticle} />
       <Route
