@@ -7,7 +7,7 @@ function Nav(props) {
   return (
     <div>
       <Link to={'/submit'}>
-        <button className="create">Create Article</button>
+        <button className="btn btn-outline-success">Create Article</button>
       </Link>
     </div>
   )
