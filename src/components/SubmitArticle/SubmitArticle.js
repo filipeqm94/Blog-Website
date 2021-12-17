@@ -10,28 +10,28 @@ function SubmitArticle(props) {
         <button className="btn btn-outline-warning mb-3">Back</button>
       </Link>
       <form>
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="title"
             placeholder="Title"
           />
         </div>
 
-        <div class="form-group mt-3">
+        <div className="form-group mt-3">
           <input
             type="text"
             required
-            class="form-control"
+            className="form-control"
             id="author"
             placeholder="Author"
           />
         </div>
 
-        <div class="form-group mt-3">
+        <div className="form-group mt-3">
           <textarea
-            class="form-control"
+            className="form-control"
             id="article"
             rows="5"
             placeholder="Text..."
