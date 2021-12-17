@@ -8,6 +8,7 @@ import SubmitArticle from './components/SubmitArticle/SubmitArticle'
 import Articles from './components/Articles/Articles'
 
 import './App.css'
+import Article from './components/Article/Article'
 
 const dbURL = 'http://localhost:4000/api/articles'
 
@@ -25,6 +26,11 @@ function App() {
       <Route exact path="/" component={Nav} />
       <Route exact path="/" render={() => <Articles articles={articles} />} />
       <Route exact path="/submit" component={SubmitArticle} />
+      <Route
+        exact
+        path="/article/:id"
+        render={routerProps => <Article match={routerProps.match} />}
+      />
       {/* INSERT COMPONENTS ABOVE */}
     </div>
   )
