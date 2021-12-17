@@ -20,10 +20,16 @@ export default function Articles({ articles }) {
               </p>
             </Link>
             <div className="d-grid gap-2 d-md-block m-1">
-              <button className="btn btn-success" type="button">
+              <button
+                className="btn interact bg-success bg-gradient"
+                type="button"
+              >
                 <RiThumbUpFill /> {article.likes.positive}
               </button>
-              <button className="btn btn-danger" type="button">
+              <button
+                className="btn interact bg-danger bg-gradient"
+                type="button"
+              >
                 <RiThumbDownFill /> {article.likes.negative}
               </button>
             </div>
