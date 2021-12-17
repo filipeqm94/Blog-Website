@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
-import Nav from './components/Nav/Nav'
+import Header from './components/Header/Header'
 import SubmitArticle from './components/SubmitArticle/SubmitArticle'
 import Articles from './components/Articles/Articles'
 
@@ -21,9 +21,10 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Hello</h1>
+      <div>
+        <Header />
+      </div>
       {/* INSERT COMPONENTS BELOW */}
-      <Route exact path="/" component={Nav} />
       <Route exact path="/" render={() => <Articles articles={articles} />} />
       <Route exact path="/submit" component={SubmitArticle} />
       <Route
@@ -31,6 +32,10 @@ function App() {
         path="/article/:id"
         render={routerProps => <Article match={routerProps.match} />}
       />
+      <div className="articles">
+        <Route exact path="/" render={() => <Articles articles={articles} />} />
+        <Route exact path="/submit" component={SubmitArticle} />
+      </div>
       {/* INSERT COMPONENTS ABOVE */}
     </div>
   )

@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Rajdhani-Bold
+font link: https://fonts.google.com/specimen/Rajdhani
+font author: Indian Type Foundry
+font author site: https://www.indiantypefoundry.com/
+
+
+icon designer: Alfredo @ IconsAlfredo.com
+icon designer link: /AlfredoCreates
+        
+{"bg":"transparent","icon-gradient-0":"#22526E","icon-gradient-1":"#BDB496","font":"#000000","slogan":"#141414"}
+      
