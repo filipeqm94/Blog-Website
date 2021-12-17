@@ -12,8 +12,8 @@ function App() {
       <h1>Hello</h1>
       {/* INSERT COMPONENTS BELOW */}
       <Route exact path="/" component={Nav} />
+      <Route exact path="/" component={Articles} />
       <Route exact path="/submit" component={SubmitArticle} />
-      <Articles />
       {/* INSERT COMPONENTS ABOVE */}
     </div>
   )
