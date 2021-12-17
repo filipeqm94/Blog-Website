@@ -1,17 +1,24 @@
 .article-box {
-  border: 1px solid grey;
-  background-color: rgba(248, 239, 239, 0.781);
+  border: 3px double rgb(185, 185, 185);
+  background-color: white;
   text-align: center;
   margin-left: 300px;
   margin-right: 300px;
+  border-radius: 10px;
 }
 
-.title {
+.title,
+.author {
   border: 1px solid grey;
   padding-bottom: 5px;
   padding-top: 5px;
   margin-top: 10px;
-  width: 340px;
+  width: 165px;
+  border-radius: 10px;
+}
+
+.title {
+  margin-right: 10px;
 }
 
 .article {
@@ -20,6 +27,7 @@
   margin-top: 10px;
   resize: vertical;
   width: 340px;
+  border-radius: 10px;
 }
 
 .buttons {
@@ -36,6 +44,7 @@
   background-color: white;
   box-shadow: none;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .submit {
@@ -49,12 +58,15 @@
   background-color: white;
   box-shadow: none;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .submit:hover {
-  background-color: rgb(183, 228, 183);
+  background-color: #198754;
+  color: white;
 }
 
 .back:hover {
-  background-color: rgb(245, 200, 200);
+  background-color: #333;
+  color: white;
 }
