@@ -1,0 +1,15 @@
+.articleLink {
+  text-decoration: none;
+  color: #eee;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #eef;
+  }
+}
+
+.more {
+  background-image: linear-gradient(60deg, #e21143, #ffb03a);
+  background-clip: text;
+}
