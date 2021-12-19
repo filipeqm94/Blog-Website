@@ -32,10 +32,6 @@ function App() {
         path="/article/:id"
         render={routerProps => <Article match={routerProps.match} />}
       />
-      <div className="articles">
-        <Route exact path="/" render={() => <Articles articles={articles} />} />
-        <Route exact path="/submit" component={SubmitArticle} />
-      </div>
       {/* INSERT COMPONENTS ABOVE */}
     </div>
   )

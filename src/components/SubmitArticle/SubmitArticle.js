@@ -1,24 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SubmitArticle.scss'
 
 import { Link } from 'react-router-dom'
 
 function SubmitArticle(props) {
+  const axios = require('axios')
+  const initialState = {
+    author: '',
+    title: '',
+    body: ''
+  }
+
+  const [formState, setFormState] = useState(initialState)
+
+  const handleChange = ev => {
+    ev.preventDefault()
+    setFormState({ ...formState, [ev.target.id]: ev.target.value })
+  }
+
+  const handleSubmit = ev => {
+    ev.preventDefault()
+    axios.post('http://localhost:4000/api/articles', formState).then(res => {
+      setFormState(initialState)
+      window.location.pathname = `/article/${res.data._id}`
+    })
+  }
+
   return (
     <div>
       <Link to={'/'}>
         <button className="btn btn-outline-warning mb-3">Back</button>
       </Link>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
             type="text"
             className="form-control"
             id="title"
             placeholder="Title"
+            onChange={handleChange}
           />
         </div>
-
         <div className="form-group mt-3">
           <input
             type="text"
@@ -26,16 +48,17 @@ function SubmitArticle(props) {
             className="form-control"
             id="author"
             placeholder="Author"
+            onChange={handleChange}
           />
         </div>
-
         <div className="form-group mt-3">
           <textarea
             className="form-control"
-            id="article"
+            id="body"
             rows="5"
             placeholder="Text..."
             required
+            onChange={handleChange}
           ></textarea>
         </div>
         <button type="submit" className="btn btn-outline-success mt-3">
