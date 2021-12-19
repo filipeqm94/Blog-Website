@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './SubmitArticle.scss'
 
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function SubmitArticle(props) {
   const axios = require('axios')
