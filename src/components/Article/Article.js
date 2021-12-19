@@ -9,7 +9,7 @@ export default function Article({ match }) {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/api/articles' + match.url)
+      .get('http://localhost:4000/api/articles/' + match.params.id)
       .then(res => setArticle(res.data))
   }, [])
 
