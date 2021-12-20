@@ -10,7 +10,6 @@ export default function Comments({ article, setArticle }) {
     axios
       .post('http://localhost:4000/api/comments', comment)
       .then(({ data }) => {
-        console.log(data)
         axios
           .patch(
             `http://localhost:4000/api/articles/${article._id}/comments`,
@@ -31,8 +30,6 @@ export default function Comments({ article, setArticle }) {
       body: target.value
     }))
   }
-
-  console.log(article.title)
 
   return (
     <div>
