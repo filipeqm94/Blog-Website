@@ -4,22 +4,19 @@ import { Link } from 'react-router-dom'
 // import Nav from '../Nav/Nav'
 import './Header.scss'
 import logo from '../The_Rebasers_logo/cover2.png'
-import SearchForm from '../Search/SearchForm'
 
-function Header(props) {
+function Header() {
   return (
-    <header className="container lg_hd">
-      <div className="row">
-        <img src={logo} alt="HeaderImg" className="col-md-4" />
-        <div className="col align-self-center md-4">
-          <SearchForm />
-        </div>
-        <div className="col align-self-center md-4 ">
-          <Link to={'/submit'}>
-            <button className="create">Create Article</button>
-          </Link>
-        </div>
-      </div>
+    <header className="container d-flex justify-content-between align-items-center">
+      <img
+        src={logo}
+        alt="The Rebasers"
+        className="col-4 pointer"
+        onClick={() => (window.location.pathname = '/')}
+      />
+      <Link to={'/submit'} className="btn btn-outline-success mx-3">
+        Create Article
+      </Link>
     </header>
   )
 }

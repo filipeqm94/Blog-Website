@@ -7,7 +7,6 @@ import Header from './components/Header/Header'
 import SubmitArticle from './components/SubmitArticle/SubmitArticle'
 import Articles from './components/Articles/Articles'
 
-import './App.css'
 import Article from './components/Article/Article'
 
 const dbURL = 'http://localhost:4000/api/articles'

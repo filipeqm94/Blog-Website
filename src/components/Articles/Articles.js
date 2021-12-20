@@ -7,7 +7,7 @@ import { RiThumbUpFill, RiThumbDownFill } from 'react-icons/ri'
 export default function Articles({ articles }) {
   return (
     <section className="container">
-      {articles.map(article => {
+      {articles.reverse().map(article => {
         return (
           <div className="card mb-3 p-1 bg-dark rounded-3" key={article._id}>
             <Link to={`/article/${article._id}`} className="articleLink">
@@ -19,17 +19,11 @@ export default function Articles({ articles }) {
                   : article.body}
               </p>
             </Link>
-            <div className="d-grid gap-2 d-md-block m-1">
-              <button
-                className="btn interact bg-success bg-gradient"
-                type="button"
-              >
+            <div className="m-1">
+              <button className="btn bg-success bg-gradient" type="button">
                 <RiThumbUpFill /> {article.likes.positive}
               </button>
-              <button
-                className="btn interact bg-danger bg-gradient"
-                type="button"
-              >
+              <button className="btn bg-danger bg-gradient" type="button">
                 <RiThumbDownFill /> {article.likes.negative}
               </button>
             </div>
