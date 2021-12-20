@@ -18,6 +18,7 @@ export default function Article({ match }) {
   return (
     <div>
       <Link to="/">Back</Link>
+      <button className="">Delete</button>
       <br />
       <small>{article.author} </small>
       <h1>{article.title}</h1>
