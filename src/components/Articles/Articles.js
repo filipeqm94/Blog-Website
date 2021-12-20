@@ -21,10 +21,11 @@ export default function Articles({ articles }) {
             </Link>
             <div className="m-1">
               <button className="btn bg-success bg-gradient" type="button">
-                <RiThumbUpFill /> {article.likes.positive}
+                <RiThumbUpFill />
               </button>
+              <span> {article.likeCount} </span>
               <button className="btn bg-danger bg-gradient" type="button">
-                <RiThumbDownFill /> {article.likes.negative}
+                <RiThumbDownFill />
               </button>
             </div>
           </div>
