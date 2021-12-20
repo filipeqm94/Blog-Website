@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     axios.get(dbURL).then(res => setArticles(res.data))
-  }, [])
+  }, [articles])
 
   return (
     <div className="container">
