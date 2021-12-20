@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
 import Delete from '../Delete/Delete'
 import Like from '../Like/Like'
-
 import Comments from '../Comments/Comments'
 
 import './Article.scss'
