@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Delete from '../Delete/Delete'
+import Like from '../Like/Like'
 
 import Comments from '../Comments/Comments'
 
@@ -27,14 +28,7 @@ export default function Article({ match }) {
         <small>{Date(article.createdAt)}</small>
       </div>
       <p className="mt-3 p-3 bg-dark rounded">{article.body}</p>
-      <label className="btn btn-outline-success">
-        Like
-        <input type="radio" name="likeArticle" value="positive" />
-      </label>
-      <label className="btn btn-outline-danger">
-        Dislike
-        <input type="radio" name="likeArticle" value="negative" />
-      </label>
+      <Like article={article} setArticle={setArticle} />
       <Comments article={article} setArticle={setArticle} />
     </div>
   )
