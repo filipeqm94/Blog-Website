@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import './SubmitArticle.scss'
-
 import { Link } from 'react-router-dom'
 
-function SubmitArticle(props) {
+function SubmitArticle() {
   const axios = require('axios')
   const initialState = {
     author: '',
