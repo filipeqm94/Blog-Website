@@ -7,6 +7,7 @@ import Header from './components/Header/Header'
 import SubmitArticle from './components/SubmitArticle/SubmitArticle'
 import Articles from './components/Articles/Articles'
 import Article from './components/Article/Article'
+import Edit from './components/Edit/Edit'
 
 const dbURL = 'http://localhost:4000/api/articles'
 
@@ -29,6 +30,11 @@ function App() {
         exact
         path="/article/:id"
         render={routerProps => <Article match={routerProps.match} />}
+      />
+      <Route
+        exact
+        path="/article/:id/edit"
+        render={routerProps => <Edit match={routerProps.match} />}
       />
       {/* INSERT COMPONENTS ABOVE */}
     </div>
