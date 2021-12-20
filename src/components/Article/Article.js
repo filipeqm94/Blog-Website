@@ -2,6 +2,8 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+import Comments from '../Comments/Comments'
+
 import './Article.scss'
 
 export default function Article({ match }) {
@@ -31,6 +33,7 @@ export default function Article({ match }) {
         Dislike
         <input type="radio" name="likeArticle" value="negative" />
       </label>
+      <Comments article={article} setArticle={setArticle} />
     </div>
   )
 }
