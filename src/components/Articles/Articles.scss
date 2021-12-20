@@ -1,46 +1,10 @@
-// IMPORT FONTS //
-//----------------//
-@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Dosis:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Open+Sans:wght@300&display=swap');
-
 .articleLink {
   text-decoration: none;
   color: #eee;
 
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    color: #eef;
+    color: #ccc;
   }
-}
-
-// SASS VARIABLES //
-//----------------//
-$grayOut: rgba(120, 120, 120, 0.819);
-
-// STYLING //
-//----------------//
-.article-body {
-  font-family: 'Dosis', sans-serif;
-  font-size: 20px;
-  color: $grayOut;
-}
-.article-body:hover {
-  color: white;
-}
-
-.card-title {
-  text-align: center;
-  font-family: 'Bakbak One', cursive;
-}
-.author {
-  text-align: center;
-}
-.btn {
-  border-radius: 20px;
-  min-height: 40px;
-  min-width: 100px;
-}
-.d-grid {
-  justify-content: center;
 }
