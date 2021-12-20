@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Delete from '../Delete/Delete'
 import Like from '../Like/Like'
 import Comments from '../Comments/Comments'
+import Edit from '../Edit/Edit'
 
 export default function Article({ match }) {
   const [article, setArticle] = useState({})
@@ -19,6 +20,7 @@ export default function Article({ match }) {
     <div>
       <Link to="/">Back</Link>
       <Delete id={article._id} />
+      <Link to={`/article/${article._id}/edit`}>Edit</Link>
       <br />
       <small>{article.author} </small>
       <h1>{article.title}</h1>
