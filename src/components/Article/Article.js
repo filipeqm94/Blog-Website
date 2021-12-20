@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Delete from '../Delete/Delete'
 
 import Comments from '../Comments/Comments'
 
@@ -18,6 +19,7 @@ export default function Article({ match }) {
   return (
     <div>
       <Link to="/">Back</Link>
+      <Delete id={article._id} />
       <br />
       <small>{article.author} </small>
       <h1>{article.title}</h1>
