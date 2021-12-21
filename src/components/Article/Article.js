@@ -30,9 +30,9 @@ export default function Article({ match }) {
       <br />
       <small>{article.author} </small>
       <h1>{article.title}</h1>
-      <div className="text-muted">
+      <small className="text-muted">
         <Moment fromNow>{article.createdAt}</Moment>
-      </div>
+      </small>
       <p className="mt-3 p-3 bg-dark rounded">{article.body}</p>
       <Like article={article} setArticle={setArticle} />
       <Comments article={article} setArticle={setArticle} />
