@@ -1,6 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
+const initialState = {
+  body: '',
+  likeCount: 0
+}
+
 export default function Comments({ article, setArticle }) {
   const [comment, setComment] = useState({ body: '', likeCount: 0 })
 
@@ -22,6 +27,7 @@ export default function Comments({ article, setArticle }) {
             }))
           )
       })
+      .then(() => setComment(initialState))
   }
 
   const handleChange = ({ target }) => {
@@ -53,7 +59,8 @@ export default function Comments({ article, setArticle }) {
       {'comments' in article
         ? article.comments.map((comment, index) => {
             return (
-              <div key={index}>
+              <div className="bg-dark rounded p-2 mb-2" key={index}>
+                {}
                 <p>{comment.body}</p>
               </div>
             )
