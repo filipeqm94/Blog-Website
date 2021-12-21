@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Moment from 'react-moment'
 
 const initialState = {
   body: '',
@@ -62,7 +63,11 @@ export default function Comments({ article, setArticle }) {
               <div className="bg-dark rounded p-2 mb-2" key={index}>
                 {}
                 <p>{comment.body}</p>
-                {/* <small>{Date(article.createdAt)}</small> */}
+                <small>
+                  <Moment fromNow className="text-muted">
+                    {article.createdAt}
+                  </Moment>
+                </small>
               </div>
             )
           })
