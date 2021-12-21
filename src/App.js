@@ -12,7 +12,7 @@ import Edit from './components/Edit/Edit'
 const dbURL = process.env.REACT_APP_API_URL + 'articles'
 
 function App() {
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState(null)
 
   useEffect(() => {
     axios.get(dbURL).then(res => setArticles(res.data))
