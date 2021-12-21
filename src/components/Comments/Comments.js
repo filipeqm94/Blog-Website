@@ -62,6 +62,7 @@ export default function Comments({ article, setArticle }) {
               <div className="bg-dark rounded p-2 mb-2" key={index}>
                 {}
                 <p>{comment.body}</p>
+                {/* <small>{Date(article.createdAt)}</small> */}
               </div>
             )
           })

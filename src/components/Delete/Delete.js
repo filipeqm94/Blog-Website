@@ -7,7 +7,11 @@ const Delete = props => {
       .delete(process.env.REACT_APP_API_URL + 'articles/' + props.id)
       .then(() => (window.location.pathname = '/'))
   }
-  return <button onClick={handleDelete}>Delete</button>
+  return (
+    <button className=" btn btn-danger " onClick={handleDelete}>
+      Delete
+    </button>
+  )
 }
 
 export default Delete

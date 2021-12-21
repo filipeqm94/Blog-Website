@@ -17,10 +17,16 @@ export default function Article({ match }) {
   }, [match.params.id])
 
   return (
-    <div>
-      <Link to="/">Back</Link>
-      <Delete id={article._id} />
-      <Link to={`/article/${article._id}/edit`}>Edit</Link>
+    <div className="container">
+      <div className="d-flex mb-3">
+        <Link className="me-auto " to="/">
+          <button className=" btn btn-outline-warning">Back</button>
+        </Link>
+        <Delete id={article._id} />
+        <Link className="ms-3" to={`/article/${article._id}/edit`}>
+          <button className="btn btn-primary ">Edit</button>
+        </Link>
+      </div>
       <br />
       <small>{article.author} </small>
       <h1>{article.title}</h1>
