@@ -23,7 +23,11 @@ function App() {
       <Header />
       {/* INSERT COMPONENTS BELOW */}
       <Route exact path="/" render={() => <Articles articles={articles} />} />
-      <Route exact path="/submit" component={SubmitArticle} />
+      <Route
+        exact
+        path="/submit"
+        render={() => <SubmitArticle setArticles={setArticles} />}
+      />
       <Route
         exact
         path="/article/:id"
@@ -32,7 +36,9 @@ function App() {
       <Route
         exact
         path="/article/:id/edit"
-        render={routerProps => <Edit match={routerProps.match} />}
+        render={routerProps => (
+          <Edit match={routerProps.match} setArticles={setArticles} />
+        )}
       />
       {/* INSERT COMPONENTS ABOVE */}
     </div>
