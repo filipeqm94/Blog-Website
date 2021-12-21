@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa'
 const axios = require('axios')
 
 function Like(props) {
@@ -35,10 +36,29 @@ function Like(props) {
     })
   }
   return (
-    <div>
-      <button onClick={handleLike}>Like</button>
-      <span>{article.likeCount}</span>
-      <button onClick={handleDislike}>Dislike</button>
+    <div className="border-bottom border-top border-dark d-flex justify-content-between align-items-center">
+      <div>
+        <button
+          onClick={handleLike}
+          className="mb-3 mt-2 btn btn-outline-success"
+        >
+          <FaRegThumbsUp />
+        </button>
+        <button
+          onClick={handleDislike}
+          className="mb-3 mt-2 btn btn-outline-danger"
+        >
+          <FaRegThumbsDown />
+        </button>
+      </div>
+      <div className="d-flex justify-content-between">
+        <p className="text-end mt-3 me-2 fs-4">
+          <span className="me-1 fs-6">
+            <FaRegThumbsUp />
+          </span>
+          {article.likeCount}
+        </p>
+      </div>
     </div>
   )
 }
