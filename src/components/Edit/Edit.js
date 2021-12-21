@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 const axios = require('axios')
 
 export default function Edit({ match }) {
@@ -32,6 +34,9 @@ export default function Edit({ match }) {
 
   return (
     <div>
+      <Link to={'/'}>
+        <button className="btn btn-outline-warning mb-3">Back</button>
+      </Link>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
