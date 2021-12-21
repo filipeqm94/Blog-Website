@@ -44,7 +44,7 @@ export default function Comments({ article, setArticle }) {
           <label htmlFor="comment">Comment: </label>
           <textarea
             id="comment"
-            className="form-control"
+            className="form-control bg-dark text-light"
             placeholder="Enter your comment here"
             required
             value={comment.body}
