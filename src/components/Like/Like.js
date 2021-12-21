@@ -40,23 +40,20 @@ function Like(props) {
       })
   }
   return (
-    <div className="border-bottom border-top border-dark d-flex justify-content-between align-items-center">
-      <div>
-        <button onClick={handleLike} className="mb-3 mt-2 btn btn-success">
-          <FaRegThumbsUp />
-        </button>
-        <button onClick={handleDislike} className="mb-3 mt-2 btn btn-danger">
-          <FaRegThumbsDown />
-        </button>
-      </div>
-      <div className="d-flex justify-content-between">
-        <p className="text-end mt-3 me-2 fs-4">
-          <span className="me-1 fs-6">
-            <FaRegThumbsUp />
-          </span>
-          {article.likeCount}
-        </p>
-      </div>
+    <div>
+      <button
+        onClick={handleLike}
+        className="mb-3 pb-1 pt-0 mt-2 btn btn-success"
+      >
+        <FaRegThumbsUp />
+      </button>
+      <span className="mx-3 fs-6">{article.likeCount}</span>
+      <button
+        onClick={handleDislike}
+        className="mb-3 pb-1 pt-0 mt-2 btn btn-danger"
+      >
+        <FaRegThumbsDown />
+      </button>
     </div>
   )
 }
