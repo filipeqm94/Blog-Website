@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 
 import Delete from '../Delete/Delete'
 import Like from '../Like/Like'
 import Comments from '../Comments/Comments'
-import Edit from '../Edit/Edit'
 
 export default function Article({ match }) {
   const [article, setArticle] = useState({})
@@ -25,7 +25,7 @@ export default function Article({ match }) {
       <small>{article.author} </small>
       <h1>{article.title}</h1>
       <div className="text-muted">
-        <small>{Date(article.createdAt)}</small>
+        <Moment fromNow>{article.createdAt}</Moment>
       </div>
       <p className="mt-3 p-3 bg-dark rounded">{article.body}</p>
       <Like article={article} setArticle={setArticle} />
