@@ -35,7 +35,7 @@ export default function Edit({ match }) {
   return (
     <div>
       <Link to={'/'}>
-        <button className="btn btn-outline-warning mb-3">Back</button>
+        <button className="btn btn-warning mb-3">Back</button>
       </Link>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -70,7 +70,7 @@ export default function Edit({ match }) {
             onChange={handleChange}
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-outline-success mt-3">
+        <button type="submit" className="btn btn-success mt-3">
           Submit
         </button>
       </form>
