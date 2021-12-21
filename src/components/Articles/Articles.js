@@ -16,17 +16,19 @@ export default function Articles({ articles }) {
                 <h2 className="card-title">{article.title}</h2>
               </div>
 
-              <small className="text-muted">By: {article.author}</small>
-              <p>
+              <small className="text-muted">
+                By: {article.author} -{' '}
+                <Moment format="YYYY/MM/DD" className="text-muted">
+                  {article.createdAt}
+                </Moment>
+              </small>
+              <p className="mt-2">
                 {article.body.length > 283
                   ? `${article.body.slice(0, 280)}...`
                   : article.body}
               </p>
               <div className="d-flex">
-                <Moment format="YYYY/MM/DD" className="text-muted">
-                  {article.createdAt}
-                </Moment>
-                <small className="d-flex ms-4">
+                <small className="d-flex">
                   <p>
                     <FaRegThumbsUp /> {article.likeCount}
                   </p>
