@@ -16,26 +16,32 @@ export default function Article({ match }) {
       .then(res => setArticle(res.data))
   }, [match.params.id])
 
-  return (
+  return '_id' in article ? (
     <div className="container">
-      <div className="d-flex mb-3">
+      <div className="d-flex mb-3 my-2">
         <Link className="me-auto " to="/">
-          <button className=" btn btn-warning">Back</button>
+          <button className=" btn btn-warning py-1">Back</button>
         </Link>
         <Delete id={article._id} />
         <Link className="ms-3" to={`/article/${article._id}/edit`}>
-          <button className="btn btn-primary ">Edit</button>
+          <button className="btn btn-primary  py-1">Edit</button>
         </Link>
       </div>
       <br />
-      <small>{article.author} </small>
-      <h1>{article.title}</h1>
-      <small className="text-muted">
-        <Moment fromNow>{article.createdAt}</Moment>
-      </small>
-      <p className="mt-3 p-3 bg-dark rounded">{article.body}</p>
+      <div className="border border-secondary mb-3 rounded p-3">
+        <small>{article.author} </small>
+        <h1>{article.title}</h1>
+        <small className="text-muted">
+          <Moment fromNow>{article.createdAt}</Moment>
+        </small>
+        <p className="mt-3 p-3 bg-dark rounded">{article.body}</p>
+      </div>
       <Like article={article} setArticle={setArticle} />
       <Comments article={article} setArticle={setArticle} />
+    </div>
+  ) : (
+    <div className="container d-flex justify-content-center">
+      <div className="spinner-border text-light m-5" role="status"></div>
     </div>
   )
 }
