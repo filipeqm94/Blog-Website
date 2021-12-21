@@ -8,7 +8,7 @@ const Delete = props => {
       .then(() => (window.location.pathname = '/'))
   }
   return (
-    <button className=" btn btn-danger " onClick={handleDelete}>
+    <button className="btn btn-danger py-1" onClick={handleDelete}>
       Delete
     </button>
   )
