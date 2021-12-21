@@ -42,16 +42,10 @@ function Like(props) {
   return (
     <div className="border-bottom border-top border-dark d-flex justify-content-between align-items-center">
       <div>
-        <button
-          onClick={handleLike}
-          className="mb-3 mt-2 btn btn-outline-success"
-        >
+        <button onClick={handleLike} className="mb-3 mt-2 btn btn-success">
           <FaRegThumbsUp />
         </button>
-        <button
-          onClick={handleDislike}
-          className="mb-3 mt-2 btn btn-outline-danger"
-        >
+        <button onClick={handleDislike} className="mb-3 mt-2 btn btn-danger">
           <FaRegThumbsDown />
         </button>
       </div>
