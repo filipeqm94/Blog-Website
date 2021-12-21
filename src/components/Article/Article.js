@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
+import ReactMarkdown from 'react-markdown'
 
 import Delete from '../Delete/Delete'
 import Like from '../Like/Like'
@@ -34,7 +35,9 @@ export default function Article({ match }) {
         <small className="text-muted">
           <Moment fromNow>{article.createdAt}</Moment>
         </small>
-        <p className="mt-3 p-3 bg-dark rounded">{article.body}</p>
+        <ReactMarkdown className="mt-3 p-3 bg-dark rounded">
+          {article.body}
+        </ReactMarkdown>
       </div>
       <Like article={article} setArticle={setArticle} />
       <Comments article={article} setArticle={setArticle} />

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { FaRegThumbsUp, FaRegCommentDots } from 'react-icons/fa'
+import ReactMarkdown from 'react-markdown'
 
 export default function Articles({ articles }) {
   return (
@@ -25,11 +26,11 @@ export default function Articles({ articles }) {
                       {article.createdAt}
                     </Moment>
                   </small>
-                  <p className="mt-2">
+                  <ReactMarkdown className="markdown m-3 p-3 fs-6 border border-secondary rounded">
                     {article.body.length > 283
                       ? `${article.body.slice(0, 280)}...`
                       : article.body}
-                  </p>
+                  </ReactMarkdown>
                   <div className="d-flex">
                     <small className="d-flex">
                       <p>
