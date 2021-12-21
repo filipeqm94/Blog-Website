@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="border-bottom border-dark d-flex justify-content-between align-items-center my-2">
       <Link to={'/'} className="articleLink fs-1">
-        Rebase
+        The Rebasers
       </Link>
       <Route exact path="/" component={Nav} />
     </header>
