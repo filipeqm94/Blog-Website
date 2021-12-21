@@ -18,10 +18,12 @@ function SubmitArticle() {
 
   const handleSubmit = ev => {
     ev.preventDefault()
-    axios.post('http://localhost:4000/api/articles', formState).then(res => {
-      setFormState(initialState)
-      window.location.pathname = `/article/${res.data._id}`
-    })
+    axios
+      .post(process.env.REACT_APP_API_URL + 'articles', formState)
+      .then(res => {
+        setFormState(initialState)
+        window.location.pathname = `/article/${res.data._id}`
+      })
   }
 
   return (

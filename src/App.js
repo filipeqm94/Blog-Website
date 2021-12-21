@@ -9,7 +9,7 @@ import Articles from './components/Articles/Articles'
 import Article from './components/Article/Article'
 import Edit from './components/Edit/Edit'
 
-const dbURL = 'http://localhost:4000/api/articles'
+const dbURL = process.env.REACT_APP_API_URL + 'articles'
 
 function App() {
   const [articles, setArticles] = useState([])

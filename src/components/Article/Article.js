@@ -12,7 +12,7 @@ export default function Article({ match }) {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/api/articles/' + match.params.id)
+      .get(process.env.REACT_APP_API_URL + 'articles/' + match.params.id)
       .then(res => setArticle(res.data))
   }, [match.params.id])
 

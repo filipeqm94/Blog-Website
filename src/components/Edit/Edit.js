@@ -9,7 +9,7 @@ export default function Edit({ match }) {
   })
   useEffect(() => {
     axios
-      .get('http://localhost:4000/api/articles/' + match.params.id)
+      .get(process.env.REACT_APP_API_URL + 'articles/' + match.params.id)
       .then(res => setEditArticle(res.data))
   }, [match.params.id])
 
@@ -24,7 +24,7 @@ export default function Edit({ match }) {
     event.preventDefault()
     axios
       .patch(
-        'http://localhost:4000/api/articles/' + match.params.id,
+        process.env.REACT_APP_API_URL + 'articles/' + match.params.id,
         editArticle
       )
       .then(() => (window.location.pathname = '/article/' + match.params.id))
