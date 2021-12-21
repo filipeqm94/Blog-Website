@@ -13,7 +13,7 @@ function Header() {
         className="col-4 pointer"
         onClick={() => (window.location.pathname = '/')}
       />
-      <Link to={'/submit'} className="btn btn-outline-success mx-3">
+      <Link to={'/submit'} className="btn btn-success mx-3">
         Create Article
       </Link>
     </header>

@@ -20,7 +20,7 @@ export default function Article({ match }) {
     <div className="container">
       <div className="d-flex mb-3">
         <Link className="me-auto " to="/">
-          <button className=" btn btn-outline-warning">Back</button>
+          <button className=" btn btn-warning">Back</button>
         </Link>
         <Delete id={article._id} />
         <Link className="ms-3" to={`/article/${article._id}/edit`}>
