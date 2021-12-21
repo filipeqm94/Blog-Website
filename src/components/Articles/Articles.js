@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 
 import './Articles.scss'
 
@@ -17,8 +18,11 @@ export default function Articles({ articles }) {
                   ? `${article.body.slice(0, 280)}...`
                   : article.body}
               </p>
+              <Moment format="YYYY/MM/DD" className="text-muted">
+                {article.createdAt}
+              </Moment>
             </Link>
-            <p>
+            <p className="mt-3">
               <small>
                 {article.likeCount} Likes | {article.comments.length} Comments
               </small>
