@@ -20,9 +20,7 @@ function App() {
 
   return (
     <div className="container">
-      <div>
-        <Header />
-      </div>
+      <Header />
       {/* INSERT COMPONENTS BELOW */}
       <Route exact path="/" render={() => <Articles articles={articles} />} />
       <Route exact path="/submit" component={SubmitArticle} />

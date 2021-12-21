@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { FaRegThumbsUp, FaRegCommentDots } from 'react-icons/fa'
 
-import './Articles.scss'
-
 export default function Articles({ articles }) {
   return (
     <section className="container">
