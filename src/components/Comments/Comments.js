@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import DeleteComment from '../Delete/DeleteComment'
 
 const initialState = {
   body: '',
