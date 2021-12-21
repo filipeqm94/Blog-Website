@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
-function SubmitArticle() {
-  const axios = require('axios')
+const axios = require('axios')
+
+function SubmitArticle({ setArticles }) {
   const initialState = {
     author: '',
     title: '',
     body: ''
   }
+  const [redirect, setRedirect] = useState(null)
 
   const [formState, setFormState] = useState(initialState)
 
@@ -21,13 +23,17 @@ function SubmitArticle() {
     axios
       .post(process.env.REACT_APP_API_URL + 'articles', formState)
       .then(res => {
-        setFormState(initialState)
-        window.location.pathname = `/article/${res.data._id}`
+        setArticles(prevArticles => [
+          res.data,
+          ...prevArticles.filter(article => article._id !== res.data._id)
+        ])
+        setRedirect(res.data._id)
       })
   }
 
   return (
     <div>
+      {redirect ? <Redirect to={'/article/' + redirect} /> : null}
       <Link to={'/'}>
         <button className="btn btn-warning mb-3">Back</button>
       </Link>
