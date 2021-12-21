@@ -7,33 +7,37 @@ function Like(props) {
   const setArticle = props.setArticle
 
   const handleLike = () => {
-    axios.get(`http://localhost:4000/api/articles/${article._id}`).then(res => {
-      axios
-        .patch(`http://localhost:4000/api/articles/${article._id}`, {
-          likeCount: res.data.likeCount + 1
-        })
-        .then(res =>
-          setArticle(prevState => ({
-            ...prevState,
-            likeCount: res.data.likeCount
-          }))
-        )
-    })
+    axios
+      .get(`${process.env.REACT_APP_API_URL}articles/${article._id}`)
+      .then(res => {
+        axios
+          .patch(`${process.env.REACT_APP_API_URL}articles/${article._id}`, {
+            likeCount: res.data.likeCount + 1
+          })
+          .then(res =>
+            setArticle(prevState => ({
+              ...prevState,
+              likeCount: res.data.likeCount
+            }))
+          )
+      })
   }
 
   const handleDislike = () => {
-    axios.get(`http://localhost:4000/api/articles/${article._id}`).then(res => {
-      axios
-        .patch(`http://localhost:4000/api/articles/${article._id}`, {
-          likeCount: res.data.likeCount - 1
-        })
-        .then(res =>
-          setArticle(prevState => ({
-            ...prevState,
-            likeCount: res.data.likeCount
-          }))
-        )
-    })
+    axios
+      .get(`${process.env.REACT_APP_API_URL}articles/${article._id}`)
+      .then(res => {
+        axios
+          .patch(`${process.env.REACT_APP_API_URL}articles/${article._id}`, {
+            likeCount: res.data.likeCount - 1
+          })
+          .then(res =>
+            setArticle(prevState => ({
+              ...prevState,
+              likeCount: res.data.likeCount
+            }))
+          )
+      })
   }
   return (
     <div className="border-bottom border-top border-dark d-flex justify-content-between align-items-center">

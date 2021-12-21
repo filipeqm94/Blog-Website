@@ -13,11 +13,11 @@ export default function Comments({ article, setArticle }) {
     event.preventDefault()
 
     axios
-      .post('http://localhost:4000/api/comments', comment)
+      .post(process.env.REACT_APP_API_URL + 'comments', comment)
       .then(({ data }) => {
         axios
           .patch(
-            `http://localhost:4000/api/articles/${article._id}/comments`,
+            `${process.env.REACT_APP_API_URL}articles/${article._id}/comments`,
             data
           )
           .then(

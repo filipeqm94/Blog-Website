@@ -4,7 +4,7 @@ const axios = require('axios')
 const Delete = props => {
   const handleDelete = () => {
     axios
-      .delete('http://localhost:4000/api/articles/' + props.id)
+      .delete(process.env.REACT_APP_API_URL + 'articles/' + props.id)
       .then(() => (window.location.pathname = '/'))
   }
   return <button onClick={handleDelete}>Delete</button>
