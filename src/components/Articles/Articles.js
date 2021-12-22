@@ -16,22 +16,21 @@ export default function Articles({ articles }) {
                 key={article._id}
               >
                 <Link to={`/article/${article._id}`} className="articleLink">
-                  <div>
-                    <h2 className="card-title">{article.title}</h2>
-                  </div>
+                  <h2 className="card-title ms-3">{article.title}</h2>
 
-                  <small className="text-muted">
+                  <small className="text-muted ms-3">
                     By: {article.author} -{' '}
-                    <Moment format="MM/DD/YYYY" className="text-muted">
-                      {article.createdAt}
-                    </Moment>
+                    <Moment format="MM/DD">{article.createdAt}</Moment> (
+                    <Moment fromNow>{article.createdAt}</Moment>)
                   </small>
+
                   <ReactMarkdown className="markdown m-3 p-3 fs-6 border border-secondary rounded">
                     {article.body.length > 283
                       ? `${article.body.slice(0, 280)}...`
                       : article.body}
                   </ReactMarkdown>
-                  <div className="d-flex">
+
+                  <div className="ms-4">
                     <small className="d-flex">
                       <p>
                         <FaRegThumbsUp /> {article.likeCount}
