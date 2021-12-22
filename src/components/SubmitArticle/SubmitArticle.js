@@ -22,12 +22,11 @@ function SubmitArticle({ setArticles }) {
     ev.preventDefault()
     axios
       .post(process.env.REACT_APP_API_URL + 'articles', formState)
-      .then(res => {
-        setArticles(prevArticles => [
-          res.data,
-          ...prevArticles.filter(article => article._id !== res.data._id)
-        ])
-        setRedirect(res.data._id)
+      .then(newArticle => {
+        axios
+          .get(process.env.REACT_APP_API_URL + 'articles')
+          .then(res => setArticles(res.data))
+          .then(() => setRedirect(newArticle.data._id))
       })
   }
 
