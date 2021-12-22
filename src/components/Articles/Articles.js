@@ -22,7 +22,7 @@ export default function Articles({ articles }) {
 
                   <small className="text-muted">
                     By: {article.author} -{' '}
-                    <Moment format="YYYY/MM/DD" className="text-muted">
+                    <Moment format="MM/DD/YYYY" className="text-muted">
                       {article.createdAt}
                     </Moment>
                   </small>
