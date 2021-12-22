@@ -31,7 +31,9 @@ function App() {
       <Route
         exact
         path="/article/:id"
-        render={routerProps => <Article match={routerProps.match} />}
+        render={routerProps => (
+          <Article match={routerProps.match} setArticles={setArticles} />
+        )}
       />
       <Route
         exact
