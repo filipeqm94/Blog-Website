@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const axios = require('axios')
 
-function SubmitArticle({ setArticles }) {
-  const initialState = {
+function SubmitArticle() {
+  const [formState, setFormState] = useState({
     author: '',
     title: '',
     body: ''
-  }
-  const [redirect, setRedirect] = useState(null)
+  })
 
-  const [formState, setFormState] = useState(initialState)
+  const history = useHistory()
 
   const handleChange = ev => {
     ev.preventDefault()
@@ -22,17 +21,11 @@ function SubmitArticle({ setArticles }) {
     ev.preventDefault()
     axios
       .post(process.env.REACT_APP_API_URL + 'articles', formState)
-      .then(newArticle => {
-        axios
-          .get(process.env.REACT_APP_API_URL + 'articles')
-          .then(res => setArticles(res.data))
-          .then(() => setRedirect(newArticle.data._id))
-      })
+      .then(res => history.push('/article/' + res.data._id))
   }
 
   return (
     <div>
-      {redirect ? <Redirect to={'/article/' + redirect} /> : null}
       <Link to={'/'}>
         <button className="btn btn-warning mb-3">Back</button>
       </Link>

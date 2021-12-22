@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const axios = require('axios')
 
-export default function Edit({ match, setArticles }) {
+export default function Edit({ match }) {
   const [editArticle, setEditArticle] = useState({
     title: '',
     author: '',
     body: ''
   })
-  const [redirect, setRedirect] = useState(null)
+
+  const history = useHistory()
 
   useEffect(() => {
     axios
@@ -31,17 +32,11 @@ export default function Edit({ match, setArticles }) {
         process.env.REACT_APP_API_URL + 'articles/' + match.params.id,
         editArticle
       )
-      .then(newArticle => {
-        axios
-          .get(process.env.REACT_APP_API_URL + 'articles')
-          .then(res => setArticles(res.data))
-          .then(() => setRedirect(newArticle.data._id))
-      })
+      .then(res => history.push('/article/' + res.data._id))
   }
 
   return (
     <div>
-      {redirect ? <Redirect to={'/article/' + redirect} /> : null}
       <Link to={'/'}>
         <button className="btn btn-warning mb-3">Back</button>
       </Link>
