@@ -8,7 +8,7 @@ import Delete from '../Delete/Delete'
 import Like from '../Like/Like'
 import Comments from '../Comments/Comments'
 
-export default function Article({ match }) {
+export default function Article({ match, setArticles }) {
   const [article, setArticle] = useState({})
 
   useEffect(() => {
@@ -17,13 +17,19 @@ export default function Article({ match }) {
       .then(res => setArticle(res.data))
   }, [match.params.id])
 
+  const handleBack = () => {
+    axios
+      .get(process.env.REACT_APP_API_URL + 'articles')
+      .then(res => setArticles(res.data))
+  }
+
   return '_id' in article ? (
     <div className="container">
       <div className="d-flex mb-3 my-2">
-        <Link className="me-auto " to="/">
+        <Link onClick={handleBack} className="me-auto" to="/">
           <button className=" btn btn-warning py-1">Back</button>
         </Link>
-        <Delete id={article._id} />
+        <Delete id={article._id} setArticles={setArticles} />
         <Link className="ms-3" to={`/article/${article._id}/edit`}>
           <button className="btn btn-primary  py-1">Edit</button>
         </Link>
