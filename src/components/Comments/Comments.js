@@ -19,7 +19,7 @@ export default function Comments({ article, setArticle }) {
         axios
           .patch(
             `${process.env.REACT_APP_API_URL}articles/${article._id}/comments`,
-            data
+            { id: data }
           )
           .then(
             setArticle(prevState => ({
@@ -61,7 +61,6 @@ export default function Comments({ article, setArticle }) {
         article.comments.map((comment, index) => {
           return (
             <div className="bg-dark rounded p-2 mb-2" key={index}>
-              {}
               <p>{comment.body}</p>
               <small>
                 <Moment fromNow className="text-muted">
