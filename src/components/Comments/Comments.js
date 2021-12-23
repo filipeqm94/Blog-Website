@@ -14,21 +14,14 @@ export default function Comments({ article, setArticle }) {
     event.preventDefault()
 
     axios
-      .post(process.env.REACT_APP_API_URL + 'comments', comment)
-      .then(({ data }) => {
-        axios
-          .patch(
-            `${process.env.REACT_APP_API_URL}articles/${article._id}/comments`,
-            data
-          )
-          .then(
-            setArticle(prevState => ({
-              ...prevState,
-              comments: [...prevState.comments, data]
-            }))
-          )
+      .post(process.env.REACT_APP_API_URL + 'comments', {
+        comment: comment,
+        articleId: article._id
       })
-      .then(() => setComment(initialState))
+      .then(({ data }) => {
+        setArticle(data)
+        setComment(initialState)
+      })
   }
 
   const handleChange = ({ target }) => {
@@ -61,7 +54,6 @@ export default function Comments({ article, setArticle }) {
         article.comments.map((comment, index) => {
           return (
             <div className="bg-dark rounded p-2 mb-2" key={index}>
-              {}
               <p>{comment.body}</p>
               <small>
                 <Moment fromNow className="text-muted">
