@@ -3,15 +3,9 @@ import { Link } from 'react-router-dom'
 
 function Header({ user }) {
   return (
-<<<<<<< HEAD
     <header className="border-bottom border-dark d-flex justify-content-between align-items-center pb-1">
       <Link to={'/'} className="logo articleLink fs-1">
         articlr
-=======
-    <header className="border-bottom border-dark d-flex justify-content-between align-items-center mb-3 mx-3 pb-1">
-      <Link to={'/'} className="articleLink fs-1">
-        The Rebasers
->>>>>>> eb11b6e (conditional render login or user info according if there is a logged in user or not)
       </Link>
       {user ? (
         <div className="d-flex align-items-center">
