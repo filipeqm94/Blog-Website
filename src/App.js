@@ -9,11 +9,13 @@ import Articles from './components/Articles/Articles'
 import Article from './components/Article/Article'
 import Edit from './components/Edit/Edit'
 import Footer from './components/Footer/Footer'
+import Auth from './components/Auth/Auth'
 
 const dbURL = process.env.REACT_APP_API_URL + 'articles'
 
 function App() {
   const [articles, setArticles] = useState(null)
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
   const location = useLocation()
 
@@ -24,7 +26,12 @@ function App() {
   return (
     <>
       <main className="container">
-        <Header />
+        <Header user={user} />
+        <Route
+          exact
+          path="/auth"
+          render={() => <Auth user={user} setUser={setUser} />}
+        />
         <Route exact path="/" render={() => <Articles articles={articles} />} />
         <Route exact path="/submit" component={SubmitArticle} />
         <Route
