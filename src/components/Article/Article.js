@@ -39,7 +39,7 @@ export default function Article({ match }) {
           {article.body}
         </ReactMarkdown>
       </div>
-      <Like article={article} setArticle={setArticle} />
+      <Like target={article} setArticle={setArticle} path={'articles/'} />
       <Comments article={article} setArticle={setArticle} />
     </div>
   ) : (

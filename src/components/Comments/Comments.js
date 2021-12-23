@@ -14,21 +14,14 @@ export default function Comments({ article, setArticle }) {
     event.preventDefault()
 
     axios
-      .post(process.env.REACT_APP_API_URL + 'comments', comment)
-      .then(({ data }) => {
-        axios
-          .patch(
-            `${process.env.REACT_APP_API_URL}articles/${article._id}/comments`,
-            { id: data }
-          )
-          .then(
-            setArticle(prevState => ({
-              ...prevState,
-              comments: [...prevState.comments, data]
-            }))
-          )
+      .post(process.env.REACT_APP_API_URL + 'comments', {
+        comment: comment,
+        articleId: article._id
       })
-      .then(() => setComment(initialState))
+      .then(({ data }) => {
+        setArticle(data)
+        setComment(initialState)
+      })
   }
 
   const handleChange = ({ target }) => {
