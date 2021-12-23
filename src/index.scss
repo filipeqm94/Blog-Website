@@ -80,3 +80,9 @@ blockquote {
   background-color: #444;
   border-radius: 5px;
 }
+
+@media (max-height: 500px) {
+  .container {
+    padding-bottom: 5rem;
+  }
+}
