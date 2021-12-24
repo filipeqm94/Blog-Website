@@ -13,7 +13,7 @@ function Header({ user, setUser }) {
   }
 
   return (
-    <header className="border-bottom border-dark d-flex justify-content-between align-items-center py-2">
+    <header className="border-bottom border-dark d-flex justify-content-between align-items-center mb-4 py-2">
       <Link to={'/'} className="logo articleLink mt-2 fs-1">
         articlr
       </Link>
