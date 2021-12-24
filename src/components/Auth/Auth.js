@@ -30,7 +30,7 @@ export default function Auth({ user, setUser }) {
           password: formData.password
         })
         .then(res => {
-          localStorage.setItem('profile', JSON.stringify({ ...res.data }))
+          localStorage.setItem('profile', JSON.stringify(res.data))
           setUser(res.data)
           setError(null)
 
@@ -41,7 +41,8 @@ export default function Auth({ user, setUser }) {
       axios
         .post(process.env.REACT_APP_API_URL + 'user/signup', formData)
         .then(res => {
-          localStorage.setItem('profile', JSON.stringify({ ...res.data }))
+          console.log(res.data)
+          localStorage.setItem('profile', JSON.stringify(res.data))
           setUser(res.data)
           setError(null)
 
