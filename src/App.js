@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <main className="container">
-        <Header user={user} />
+        <Header user={user} setUser={setUser} />
         <Route
           exact
           path="/auth"
