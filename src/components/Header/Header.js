@@ -39,7 +39,7 @@ function Header({ user, setUser }) {
                 borderRadius: '100%'
               }}
             >
-              {user.profileObj.name.charAt(0)}
+              {user.profileObj.name.charAt(0).toUpperCase()}
             </h2>
           )}
 
