@@ -19,17 +19,30 @@ function Header({ user, setUser }) {
       </Link>
       {user ? (
         <div className="d-flex align-items-center">
-          <h6 className="me-3">{user.profileId.givenName}</h6>
-          <img
-            className="border border-light"
-            src={user.profileId.imageUrl}
-            alt={user.profileId.name}
-            style={{
-              width: '30px',
-              padding: 0,
-              borderRadius: '100%'
-            }}
-          />
+          <h6 className="me-3">{user.profileObj.name}</h6>
+          {user.profileObj.imageUrl ? (
+            <img
+              className="border border-light"
+              src={user.profileObj.imageUrl}
+              alt={user.profileObj.name}
+              style={{
+                width: '30px',
+                padding: 0,
+                borderRadius: '100%'
+              }}
+            />
+          ) : (
+            <h2
+              className="bg-dark"
+              style={{
+                padding: '0 10px',
+                borderRadius: '100%'
+              }}
+            >
+              {user.profileObj.name.charAt(0)}
+            </h2>
+          )}
+
           <button className="btn btn-danger ms-3 py-1" onClick={handleLogout}>
             Log Out
           </button>
