@@ -1,19 +1,56 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import axios from 'axios'
+
 import { GoogleLogin } from 'react-google-login'
 
+const initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: ''
+}
+
 export default function Auth({ user, setUser }) {
-  const [isSignIn, setIsSignIn] = useState(false)
+  const [isSignIn, setIsSignIn] = useState(true)
+  const [formData, setFormData] = useState(initialState)
 
   const history = useHistory()
 
   function handleSubmit(event) {
     event.preventDefault()
+
+    if (isSignIn) {
+      axios
+        .post(process.env.REACT_APP_API_URL + 'user/signin', {
+          email: formData.email,
+          password: formData.password
+        })
+        .then(res => {
+          localStorage.setItem('profile', JSON.stringify({ ...res.data }))
+          setUser(res.data)
+        })
+
+      history.push('/')
+    } else {
+      axios
+        .post(process.env.REACT_APP_API_URL + 'user/signup', formData)
+        .then(res => {
+          localStorage.setItem('profile', JSON.stringify({ ...res.data }))
+          setUser(res.data)
+        })
+
+      history.push('/')
+    }
   }
 
   function handleChange({ target }) {
-    console.log(target.id)
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [target.name]: target.value
+    }))
   }
 
   function handleSwitch() {
@@ -22,7 +59,7 @@ export default function Auth({ user, setUser }) {
 
   function googleSuccess(res) {
     const profile = {
-      profileId: res.profileObj,
+      profileObj: res.profileObj,
       tokenId: res.tokenId
     }
 
@@ -38,27 +75,22 @@ export default function Auth({ user, setUser }) {
 
   return (
     <>
-      {user ? (
-        <>
-          <h2>{user.profileId.givenName}</h2>
-          <img src={user.profileId.imageUrl} alt={user.profileId.name} />
-        </>
-      ) : null}
-
       <form onSubmit={handleSubmit}>
         {isSignIn ? (
           <>
             <input
               type="email"
-              id="email"
+              name="email"
               placeholder="Email"
+              required
               onChange={handleChange}
             />
             <br />
             <input
               type="password"
-              id="password"
+              name="password"
               placeholder="Password"
+              required
               onChange={handleChange}
             />
           </>
@@ -67,13 +99,14 @@ export default function Auth({ user, setUser }) {
             <div>
               <input
                 type="text"
-                id="firstName"
+                name="firstName"
                 placeholder="First Name *"
+                required
                 onChange={handleChange}
               />
               <input
                 type="text"
-                id="lastName"
+                name="lastName"
                 placeholder="Last Name *"
                 onChange={handleChange}
               />
@@ -81,22 +114,25 @@ export default function Auth({ user, setUser }) {
             <div>
               <input
                 type="email"
-                id="email"
+                name="email"
                 placeholder="Email *"
+                required
                 onChange={handleChange}
               />
               <br />
               <input
                 type="password"
-                id="password"
+                name="password"
                 placeholder="Password *"
+                required
                 onChange={handleChange}
               />
               <br />
               <input
                 type="password"
-                id="confirmPassword"
+                name="confirmPassword"
                 placeholder="Confirm Password *"
+                required
                 onChange={handleChange}
               />
             </div>
