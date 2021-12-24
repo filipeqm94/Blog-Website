@@ -16,6 +16,7 @@ const initialState = {
 export default function Auth({ user, setUser }) {
   const [isSignIn, setIsSignIn] = useState(true)
   const [formData, setFormData] = useState(initialState)
+  const [error, setError] = useState(null)
 
   const history = useHistory()
 
@@ -29,11 +30,14 @@ export default function Auth({ user, setUser }) {
           password: formData.password
         })
         .then(res => {
+          if (res.data.message) return setError(res.data)
+
           localStorage.setItem('profile', JSON.stringify({ ...res.data }))
           setUser(res.data)
-        })
+          setError(null)
 
-      history.push('/')
+          history.push('/')
+        })
     } else {
       axios
         .post(process.env.REACT_APP_API_URL + 'user/signup', formData)
@@ -76,6 +80,14 @@ export default function Auth({ user, setUser }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        {error ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <div className="alert alert-danger text-center p-2" role="alert">
+              {error.message}
+            </div>
+          </div>
+        ) : null}
+
         {isSignIn ? (
           <>
             <input
