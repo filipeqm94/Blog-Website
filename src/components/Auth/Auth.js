@@ -30,23 +30,24 @@ export default function Auth({ user, setUser }) {
           password: formData.password
         })
         .then(res => {
-          if (res.data.message) return setError(res.data)
-
           localStorage.setItem('profile', JSON.stringify({ ...res.data }))
           setUser(res.data)
           setError(null)
 
           history.push('/')
         })
+        .catch(res => setError(res.response.data))
     } else {
       axios
         .post(process.env.REACT_APP_API_URL + 'user/signup', formData)
         .then(res => {
           localStorage.setItem('profile', JSON.stringify({ ...res.data }))
           setUser(res.data)
-        })
+          setError(null)
 
-      history.push('/')
+          history.push('/')
+        })
+        .catch(res => setError(res.response.data))
     }
   }
 
@@ -80,13 +81,15 @@ export default function Auth({ user, setUser }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {error ? (
-          <div className="d-flex justify-content-center align-items-center">
-            <div className="alert alert-danger text-center p-2" role="alert">
-              {error.message}
-            </div>
+        <div
+          className={`d-flex justify-content-center align-items-center ${
+            error ? 'visible' : 'invisible'
+          }`}
+        >
+          <div className="alert alert-danger text-center p-2" role="alert">
+            {error ? error.message : 'Placeholder'}
           </div>
-        ) : null}
+        </div>
 
         {isSignIn ? (
           <>
