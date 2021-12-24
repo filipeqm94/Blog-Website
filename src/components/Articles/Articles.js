@@ -12,11 +12,13 @@ export default function Articles({ articles }) {
           articles.map(article => {
             return (
               <div
-                className="card mb-3 p-2 bg-dark rounded-3"
+                className="card my-3 p-2 bg-dark rounded-3"
                 key={article._id}
               >
                 <Link to={`/article/${article._id}`} className="articleLink">
-                  <h2 className="card-title ms-3">{article.title}</h2>
+                  <h2 className="articleTitle card-title ms-3">
+                    {article.title}
+                  </h2>
 
                   <small className="text-muted ms-3">
                     By: {article.author} -{' '}
