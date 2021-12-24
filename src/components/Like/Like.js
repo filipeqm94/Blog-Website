@@ -10,7 +10,7 @@ function Like({ target, setArticle, path }) {
   }
 
   return (
-    <div>
+    <div className="mt-3">
       <button
         onClick={() => handleFeedback('/like')}
         className="mb-3 pb-1 pt-0 mt-2 btn btn-success"

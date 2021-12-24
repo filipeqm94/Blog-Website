@@ -32,7 +32,7 @@ export default function Comments({ article, setArticle }) {
   }
 
   return (
-    <div>
+    <div className="container">
       <form className="my-4" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="comment">Comment: </label>

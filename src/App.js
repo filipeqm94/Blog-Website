@@ -29,15 +29,15 @@ function App() {
         <Route exact path="/submit" component={SubmitArticle} />
         <Route
           exact
-          path="/article/:id"
-          render={routerProps => <Article match={routerProps.match} />}
-        />
-        <Route
-          exact
           path="/article/:id/edit"
           render={routerProps => <Edit match={routerProps.match} />}
         />
       </main>
+      <Route
+        exact
+        path="/article/:id"
+        render={routerProps => <Article match={routerProps.match} />}
+      />
       <Footer />
     </>
   )
