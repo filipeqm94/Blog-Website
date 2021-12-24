@@ -7,8 +7,8 @@ const Delete = ({ id }) => {
 
   const handleDelete = () => {
     axios
-      .delete(process.env.REACT_APP_API_URL + 'articles/' + id)
-      .then(() => axios.get(process.env.REACT_APP_API_URL + 'articles'))
+      .delete(process.env.REACT_APP_API_URL + '/articles/' + id)
+      .then(() => axios.get(process.env.REACT_APP_API_URL + '/articles'))
       .then(() => history.push('/'))
   }
   return (

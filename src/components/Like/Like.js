@@ -5,7 +5,7 @@ const axios = require('axios')
 function Like({ target, setArticle, path }) {
   const handleFeedback = action => {
     axios
-      .patch(`${process.env.REACT_APP_API_URL}${path}${target._id}${action}`)
+      .patch(`${process.env.REACT_APP_API_URL}${path}/${target._id}${action}`)
       .then(({ data }) => setArticle(data))
   }
 

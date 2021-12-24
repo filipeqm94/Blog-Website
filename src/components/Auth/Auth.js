@@ -25,7 +25,7 @@ export default function Auth({ user, setUser }) {
 
     if (isSignIn) {
       axios
-        .post(process.env.REACT_APP_API_URL + 'user/signin', {
+        .post(process.env.REACT_APP_API_URL + '/user/signin', {
           email: formData.email,
           password: formData.password
         })
@@ -39,7 +39,7 @@ export default function Auth({ user, setUser }) {
         .catch(res => setError(res.response.data))
     } else {
       axios
-        .post(process.env.REACT_APP_API_URL + 'user/signup', formData)
+        .post(process.env.REACT_APP_API_URL + '/user/signup', formData)
         .then(res => {
           console.log(res.data)
           localStorage.setItem('profile', JSON.stringify(res.data))

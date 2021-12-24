@@ -11,7 +11,7 @@ import Edit from './components/Edit/Edit'
 import Footer from './components/Footer/Footer'
 import Auth from './components/Auth/Auth'
 
-const dbURL = process.env.REACT_APP_API_URL + 'articles'
+const dbURL = process.env.REACT_APP_API_URL + '/articles'
 
 function App() {
   const [articles, setArticles] = useState(null)

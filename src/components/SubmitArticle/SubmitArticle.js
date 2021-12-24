@@ -20,7 +20,7 @@ function SubmitArticle() {
   const handleSubmit = ev => {
     ev.preventDefault()
     axios
-      .post(process.env.REACT_APP_API_URL + 'articles', formState)
+      .post(process.env.REACT_APP_API_URL + '/articles', formState)
       .then(res => history.push('/article/' + res.data._id))
   }
 

@@ -13,7 +13,7 @@ export default function Article({ match }) {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + 'articles/' + match.params.id)
+      .get(process.env.REACT_APP_API_URL + '/articles/' + match.params.id)
       .then(res => setArticle(res.data))
   }, [match.params.id])
 
@@ -37,7 +37,7 @@ export default function Article({ match }) {
         <ReactMarkdown className="articleBody mt-3 p-3 bg-dark rounded border border-secondary">
           {article.body}
         </ReactMarkdown>
-        <Like target={article} setArticle={setArticle} path={'articles/'} />
+        <Like target={article} setArticle={setArticle} path={'/articles'} />
       </div>
       <Comments article={article} setArticle={setArticle} />
     </div>

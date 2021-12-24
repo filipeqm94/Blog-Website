@@ -14,7 +14,7 @@ export default function Comments({ article, setArticle }) {
     event.preventDefault()
 
     axios
-      .post(process.env.REACT_APP_API_URL + 'comments', {
+      .post(process.env.REACT_APP_API_URL + '/comments', {
         comment: comment,
         articleId: article._id
       })

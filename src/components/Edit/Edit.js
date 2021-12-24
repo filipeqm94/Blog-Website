@@ -14,7 +14,7 @@ export default function Edit({ match }) {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + 'articles/' + match.params.id)
+      .get(process.env.REACT_APP_API_URL + '/articles/' + match.params.id)
       .then(res => setEditArticle(res.data))
   }, [match.params.id])
 
@@ -29,7 +29,7 @@ export default function Edit({ match }) {
     event.preventDefault()
     axios
       .patch(
-        process.env.REACT_APP_API_URL + 'articles/' + match.params.id,
+        process.env.REACT_APP_API_URL + '/articles/' + match.params.id,
         editArticle
       )
       .then(res => history.push('/article/' + res.data._id))
