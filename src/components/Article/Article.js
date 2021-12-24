@@ -18,8 +18,8 @@ export default function Article({ match }) {
   }, [match.params.id])
 
   return '_id' in article ? (
-    <div className="container">
-      <div className="d-flex mb-3 my-2">
+    <div className="mx-5 article-container">
+      <div className="container d-flex mb-3">
         <Link className="me-auto" to="/">
           <button className=" btn btn-warning py-1">Back</button>
         </Link>
@@ -28,18 +28,17 @@ export default function Article({ match }) {
           <button className="btn btn-primary  py-1">Edit</button>
         </Link>
       </div>
-      <br />
-      <div className="border border-secondary mb-3 rounded p-3">
-        <small>{article.author} </small>
-        <h1>{article.title}</h1>
+      <div className="border border-secondary mb-3 rounded p-3 bg-dark">
+        <small className="articleBody">{article.author} </small>
+        <h1 className="articleTitle">{article.title}</h1>
         <small className="text-muted">
           <Moment fromNow>{article.createdAt}</Moment>
         </small>
-        <ReactMarkdown className="mt-3 p-3 bg-dark rounded">
+        <ReactMarkdown className="articleBody mt-3 p-3 bg-dark rounded border border-secondary">
           {article.body}
         </ReactMarkdown>
+        <Like target={article} setArticle={setArticle} path={'articles/'} />
       </div>
-      <Like target={article} setArticle={setArticle} path={'articles/'} />
       <Comments article={article} setArticle={setArticle} />
     </div>
   ) : (

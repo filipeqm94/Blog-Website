@@ -4,9 +4,9 @@ import Nav from './Nav'
 
 function Header() {
   return (
-    <header className="border-bottom border-dark d-flex justify-content-between align-items-center mb-3 pb-1">
-      <Link to={'/'} className="articleLink fs-1">
-        The Rebasers
+    <header className="border-bottom border-dark d-flex justify-content-between align-items-center pb-1">
+      <Link to={'/'} className="logo articleLink fs-1">
+        articlr
       </Link>
       <Route exact path="/" component={Nav} />
     </header>

@@ -19,14 +19,20 @@ footer {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Inter', sans-serif;
 
   background-color: #333;
   color: #eee;
+}
+
+.logo {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 900;
+}
+
+.articleTitle {
+  font-family: 'Merriweather', serif;
 }
 
 .articleLink {
@@ -38,6 +44,10 @@ body {
   &:hover {
     color: #ccc;
   }
+}
+
+.article-container {
+  padding-bottom: 5rem;
 }
 
 img {
