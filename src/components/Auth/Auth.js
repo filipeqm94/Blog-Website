@@ -49,9 +49,9 @@ export default function Auth({ user, setUser }) {
         {isSignIn ? (
           <>
             <input
-              type="text"
-              id="username"
-              placeholder="Username"
+              type="email"
+              id="email"
+              placeholder="Email"
               onChange={handleChange}
             />
             <br />
@@ -80,9 +80,9 @@ export default function Auth({ user, setUser }) {
             </div>
             <div>
               <input
-                type="username"
-                id="username"
-                placeholder="Username *"
+                type="email"
+                id="email"
+                placeholder="Email *"
                 onChange={handleChange}
               />
               <br />
