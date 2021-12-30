@@ -19,12 +19,12 @@ function Header({ user, setUser }) {
       </Link>
       {user ? (
         <div className="d-flex align-items-center">
-          <h6 className="me-3">{user.profileObj.name}</h6>
-          {user.profileObj.imageUrl ? (
+          <h6 className="me-3">{user.name}</h6>
+          {user.imageUrl ? (
             <img
               className="border border-light"
-              src={user.profileObj.imageUrl}
-              alt={user.profileObj.name}
+              src={user.imageUrl}
+              alt={user.name}
               style={{
                 width: '30px',
                 padding: 0,
@@ -39,7 +39,7 @@ function Header({ user, setUser }) {
                 borderRadius: '100%'
               }}
             >
-              {user.profileObj.name.charAt(0).toUpperCase()}
+              {user.name.charAt(0).toUpperCase()}
             </h2>
           )}
 
