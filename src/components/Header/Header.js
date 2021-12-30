@@ -1,14 +1,57 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
-import Nav from './Nav'
+import { Link, useHistory } from 'react-router-dom'
 
-function Header() {
+function Header({ user, setUser }) {
+  const history = useHistory()
+
+  function handleLogout() {
+    localStorage.clear()
+
+    setUser(null)
+
+    history.push('/')
+  }
+
   return (
-    <header className="border-bottom border-dark d-flex justify-content-between align-items-center pb-1">
-      <Link to={'/'} className="logo articleLink fs-1">
+    <header className="border-bottom border-dark d-flex justify-content-between align-items-center mb-4 py-2">
+      <Link to={'/'} className="logo articleLink mt-2 fs-1">
         articlr
       </Link>
-      <Route exact path="/" component={Nav} />
+      {user ? (
+        <div className="d-flex align-items-center">
+          <h6 className="me-3">{user.name}</h6>
+          {user.imageUrl ? (
+            <img
+              className="border border-light"
+              src={user.imageUrl}
+              alt={user.name}
+              style={{
+                width: '30px',
+                padding: 0,
+                borderRadius: '100%'
+              }}
+            />
+          ) : (
+            <h2
+              className="bg-dark"
+              style={{
+                padding: '0 10px',
+                borderRadius: '100%'
+              }}
+            >
+              {user.name.charAt(0).toUpperCase()}
+            </h2>
+          )}
+
+          <button className="btn btn-danger ms-3 py-1" onClick={handleLogout}>
+            Log Out
+          </button>
+        </div>
+      ) : (
+        <Link to="/auth" className="btn btn-primary py-1">
+          Log In
+        </Link>
+      )}
     </header>
   )
 }

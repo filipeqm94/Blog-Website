@@ -1,11 +1,10 @@
 import React from 'react'
 import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa'
-const axios = require('axios')
 
-function Like({ target, setArticle, path }) {
+function Like({ target, setArticle, path, dbURL }) {
   const handleFeedback = action => {
-    axios
-      .patch(`${process.env.REACT_APP_API_URL}${path}${target._id}${action}`)
+    dbURL
+      .patch(`${path}/${target._id}${action}`)
       .then(({ data }) => setArticle(data))
   }
 

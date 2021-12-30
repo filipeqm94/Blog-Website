@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-const axios = require('axios')
-
-export default function Edit({ match }) {
+export default function Edit({ match, dbURL }) {
   const [editArticle, setEditArticle] = useState({
     title: '',
     author: '',
@@ -13,10 +11,10 @@ export default function Edit({ match }) {
   const history = useHistory()
 
   useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_API_URL + 'articles/' + match.params.id)
+    dbURL
+      .get('/articles/' + match.params.id)
       .then(res => setEditArticle(res.data))
-  }, [match.params.id])
+  }, [match.params.id, dbURL])
 
   function handleChange(event) {
     setEditArticle(prevState => ({
@@ -27,11 +25,8 @@ export default function Edit({ match }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    axios
-      .patch(
-        process.env.REACT_APP_API_URL + 'articles/' + match.params.id,
-        editArticle
-      )
+    dbURL
+      .patch('/articles/' + match.params.id, editArticle)
       .then(res => history.push('/article/' + res.data._id))
   }
 

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import Moment from 'react-moment'
 
@@ -7,14 +6,14 @@ const initialState = {
   likeCount: 0
 }
 
-export default function Comments({ article, setArticle }) {
+export default function Comments({ article, setArticle, dbURL, isLoggedIn }) {
   const [comment, setComment] = useState({ body: '', likeCount: 0 })
 
   const handleSubmit = event => {
     event.preventDefault()
 
-    axios
-      .post(process.env.REACT_APP_API_URL + 'comments', {
+    dbURL
+      .post('/comments', {
         comment: comment,
         articleId: article._id
       })
@@ -33,23 +32,28 @@ export default function Comments({ article, setArticle }) {
 
   return (
     <div className="container">
-      <form className="my-4" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="comment">Comment: </label>
-          <textarea
-            id="comment"
-            className="form-control bg-dark text-light border-secondary"
-            placeholder="Enter your comment here"
-            required
-            value={comment.body}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <br />
-        <button className="btn btn-success" type="submit">
-          Submit
-        </button>
-      </form>
+      {isLoggedIn ? (
+        <form className="my-4" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="comment">Write your comment: </label>
+            <textarea
+              id="comment"
+              className="form-control bg-dark text-light border-secondary"
+              placeholder="Enter your comment here"
+              required
+              value={comment.body}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <br />
+          <button className="btn btn-success" type="submit">
+            Submit
+          </button>
+        </form>
+      ) : (
+        <h5 className="my-3">Comments: </h5>
+      )}
+
       {article.comments.length ? (
         article.comments.map((comment, index) => {
           return (
@@ -57,7 +61,7 @@ export default function Comments({ article, setArticle }) {
               <p>{comment.body}</p>
               <small>
                 <Moment fromNow className="text-muted">
-                  {article.createdAt}
+                  {comment.createdAt}
                 </Moment>
               </small>
             </div>
