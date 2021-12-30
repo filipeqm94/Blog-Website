@@ -65,8 +65,8 @@ export default function Auth({ user, setUser }) {
 
   function googleSuccess(res) {
     const profile = {
-      profileObj: res.profileObj,
-      tokenId: res.tokenId
+      ...res.profileObj,
+      token: res.tokenId
     }
 
     localStorage.setItem('profile', JSON.stringify({ ...profile }))
