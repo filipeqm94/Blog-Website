@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-const axios = require('axios')
-
-function SubmitArticle() {
+function SubmitArticle({ dbURL }) {
   const [formState, setFormState] = useState({
     author: '',
     title: '',
@@ -19,8 +17,8 @@ function SubmitArticle() {
 
   const handleSubmit = ev => {
     ev.preventDefault()
-    axios
-      .post(process.env.REACT_APP_API_URL + '/articles', formState)
+    dbURL
+      .post('/articles', formState)
       .then(res => history.push('/article/' + res.data._id))
   }
 
